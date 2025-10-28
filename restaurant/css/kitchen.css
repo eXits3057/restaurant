@@ -1,0 +1,252 @@
+/* ========================================
+   CSS สำหรับครัว (Kitchen Display)
+   ======================================== */
+
+.kitchen-body {
+    background: #1A1A1A;
+}
+
+.kitchen-body .navbar {
+    background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+}
+
+/* === Stats Section === */
+.stats-section {
+    padding: 20px 0;
+    background: #2C2C2C;
+}
+
+.stats-section .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stats-section .stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stats-section .stat-card.pending {
+    border-left: 4px solid #FFB800;
+}
+
+.stats-section .stat-card.cooking {
+    border-left: 4px solid #EE1D23;
+}
+
+.stats-section .stat-card.completed {
+    border-left: 4px solid #06C755;
+}
+
+.stats-section .stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.stats-section .stat-label {
+    font-size: 16px;
+    color: #CCC;
+}
+
+/* === Orders Section === */
+.orders-section {
+    padding: 30px 0;
+}
+
+.orders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.orders-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+/* === Orders Grid === */
+.orders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+/* === Order Card === */
+.order-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+}
+
+.order-card.pending {
+    border-left: 6px solid #FFB800;
+}
+
+.order-card.cooking {
+    border-left: 6px solid #EE1D23;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(238, 29, 35, 0.3); }
+    50% { box-shadow: 0 4px 30px rgba(238, 29, 35, 0.6); }
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.order-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-red);
+}
+
+.order-time {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gray);
+}
+
+.order-info {
+    margin-bottom: 15px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 15px;
+}
+
+.info-row .label {
+    color: var(--gray);
+}
+
+.info-row .value {
+    font-weight: 600;
+    color: var(--black);
+}
+
+.order-items {
+    background: #FFF5F5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.order-items h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+.order-items p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--black);
+}
+
+.order-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-action {
+    flex: 1;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-start {
+    background: #FFB800;
+    color: var(--black);
+}
+
+.btn-start:hover {
+    background: #e5a600;
+    transform: scale(1.05);
+}
+
+.btn-complete {
+    background: #06C755;
+    color: var(--white);
+}
+
+.btn-complete:hover {
+    background: #05a647;
+    transform: scale(1.05);
+}
+
+.order-status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.order-status-badge.pending {
+    background: #FFB800;
+    color: var(--black);
+}
+
+.order-status-badge.cooking {
+    background: #EE1D23;
+    color: var(--white);
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* === No Orders === */
+.no-orders {
+    text-align: center;
+    padding: 100px 20px;
+    color: var(--white);
+}
+
+.no-orders p {
+    font-size: 24px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .orders-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-section .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
